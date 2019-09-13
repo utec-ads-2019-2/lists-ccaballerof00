@@ -2,15 +2,16 @@
 #define LIST_H
 
 #include "node.h"
-
+using namespace std;
 template <typename T>
 class List {
-    protected:
+//    protected:
+public:
         Node<T>* head;
         Node<T>* tail;
         int nodes;
 
-    public:
+//    public:
         List() : head(nullptr), tail(nullptr), nodes(0) {};
 
         virtual T front() = 0;
@@ -28,7 +29,13 @@ class List {
         virtual string name() = 0;
 
         ~List() {
-            // TODO
+                for(int i = 0; i < this->nodes; i++)
+                {
+                    auto temp = this->head;
+                    this->head = this->head->next;
+                    delete temp;
+                }
+                delete head;
         }
 };
 

@@ -22,10 +22,12 @@ class CircularLinkedList : public List<T> {
         }
 
         T front() {
+            // Y si está vacía?
             return this->head->data;
         }
 
         T back() {
+            // Y si está vacía?
             return this->tail->data;
         }
 
@@ -98,6 +100,7 @@ class CircularLinkedList : public List<T> {
         }
 
         void pop_back() {
+            // No es necesario, pero no está mal
             if(empty())
             {
                 throw exception();
@@ -128,6 +131,7 @@ class CircularLinkedList : public List<T> {
         }
 
         T operator[](int index) {
+                // Sería mejor sacar el módulo para no dar tantas iteraciones
                 auto temp = this->head;
                 for (int i = 0; i < index; i++) {
                     temp = temp->next;
@@ -136,6 +140,7 @@ class CircularLinkedList : public List<T> {
         }
 
         bool empty() {
+            // Mismo caso que forward
             if(size()==0)
                 return true;
             else
@@ -183,6 +188,7 @@ class CircularLinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> begin() {
+            // Mismo caso que forward
              auto it = BidirectionalIterator<T>(this->head);
              return it;
         }

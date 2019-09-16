@@ -15,6 +15,7 @@ class BidirectionalIterator : public Iterator<T> {
         }
 
         bool operator!=(BidirectionalIterator<T> other) {
+            // Podría ser una línea
             if(this->current!=other.current)
                 return true;
             else
@@ -22,16 +23,19 @@ class BidirectionalIterator : public Iterator<T> {
         }
 
         BidirectionalIterator<T> operator++() {
+            // Controlar caso que no se pueda avanzar
             this->current=this->current->next;
             return *this;
         }
 
         BidirectionalIterator<T> operator--() {
+            // Controlar caso que no se pueda retroceder
             this->current=this->current->prev;
             return *this;
         }
 
         T operator*() {
+            // Si está vacía?
             return this->current->data;
         }
 };

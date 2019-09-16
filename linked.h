@@ -129,6 +129,7 @@ class LinkedList : public List<T> {
         }
 
         T operator[](int index) {
+            // Mismo caso que forward
             if(index < size()) {
                 auto temp = this->head;
                 for (int i = 0; i < index; i++) {
@@ -140,6 +141,7 @@ class LinkedList : public List<T> {
         }
 
         bool empty() {
+            // Mismo caso que forward
             if(size()==0)
                 return true;
             else
@@ -187,11 +189,13 @@ class LinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> begin() {
+            // Mismo caso que forward
             auto it = BidirectionalIterator<T>(this->head);
             return it;
         }
 
 	    BidirectionalIterator<T> end() {
+            // Mismo caso que forward
              auto it = BidirectionalIterator<T>(nullptr);
              return it;
         }

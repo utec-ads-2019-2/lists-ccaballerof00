@@ -41,6 +41,7 @@ class ForwardList : public List<T> {
         {
             auto temp=new Node<T>;
             temp->data=value;
+            // Es mejor usar punteros a el valor nodes
             if(empty())
             {
                this->head=temp;
@@ -136,6 +137,7 @@ class ForwardList : public List<T> {
         }
 
         T operator[](int index) {
+            // Y si es negativo?
             if(index < size()) {
                 auto temp = this->head;
                 for (int i = 0; i < index; i++) {
@@ -147,6 +149,7 @@ class ForwardList : public List<T> {
         }
 
         bool empty() {
+            // Esto puede ser return this->nodes == 0; o return !this->head;
             if(this->nodes == 0){
                 return true;
             }
@@ -161,6 +164,8 @@ class ForwardList : public List<T> {
 
         void clear() {
             auto temp = this->head;
+            // Y si la lista está vacía? Esto dará un error; 
+            // Es mejor while (temp) { ... }
             while(temp->next!=nullptr)
             {
                 temp = temp->next;
@@ -203,6 +208,7 @@ class ForwardList : public List<T> {
         }
     
         void reverse() {
+            // Así no funciona
             for(int i=size();i>1;i--){
                 swap(i, i-1);
             }
@@ -218,11 +224,13 @@ class ForwardList : public List<T> {
         }
 
         ForwardIterator<T> begin() {
+            // Esto puede ser una línea
              auto it = ForwardIterator<T>(this->head);
              return it;
         }
 
 	    ForwardIterator<T> end() {
+            // Esto puede ser en una línea
             auto it = ForwardIterator<T>(nullptr);
             return it;
         }

@@ -208,7 +208,6 @@ class ForwardList : public List<T> {
         }
     
         void reverse() {
-            // Así no funciona
             for(int i=size();i>1;i--){
                 swap(i, i-1);
             }
